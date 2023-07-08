@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """This module contains a function
-that adds to floats and returns a float
+that concatenates two strings
 """
 
 
-def add(a: float, b: float) -> float:
-    """Adds a and b and returns the result
+def concat(str1: str, str2: str) -> str:
+    """Concats str1 with str2
     """
-    return a + b
+    return str1 + str2
