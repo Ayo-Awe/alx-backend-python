@@ -5,10 +5,10 @@
 
 import random
 import asyncio
-from typing import Iterable
+from typing import AsyncIterator
 
 
-async def async_generator() -> Iterable[float]:
+async def async_generator() -> AsyncIterator:
     """Loops 10 times, each time asynchronously wait 1 second,
     then yield a random number between 0 and 10.
     """
