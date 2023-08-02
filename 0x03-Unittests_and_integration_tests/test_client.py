@@ -24,6 +24,17 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(new_org.org, {"fake": 0})
         mock_method.assert_called_once_with(new_org.ORG_URL.format(org=org))
 
+    @patch("client.get_json", return_value=[{"name": "python"}])
+    def test_public_repos(self, mock_method: Mock) -> None:
+        """Tests GithubOrgClient.org"""
+        new_org = GithubOrgClient("google")
+        return_value = {"repos_url": {"python": 3}}
+
+        with patch("client.GithubOrgClient._public_repos_url",
+                   return_value=return_value) as mocked_property:
+            self.assertEqual(new_org.public_repos(), ["python"])
+            mock_method.assert_called_once()
+
     def test_public_repos_url(self) -> None:
         """Tests GithubOrgClient._public_repos_url"""
 
