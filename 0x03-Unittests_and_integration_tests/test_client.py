@@ -39,6 +39,7 @@ class TestGithubOrgClient(unittest.TestCase):
         """Tests GithubOrgClient._public_repos_url"""
 
         return_value = {"repos_url": {"python": 3}}
-        with patch("client.get_json", return_value=return_value) as mocked_method:
+        with patch("client.get_json", return_value=return_value)\
+                as mocked_method:
             new_org = GithubOrgClient("google")
             self.assertEqual(new_org._public_repos_url, {"python": 3})
