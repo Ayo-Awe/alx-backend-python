@@ -66,7 +66,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def setUpClass(cls) -> None:
         """Setup class"""
         get_patcher = patch("requests.get").start()
-        get_patcher.side_effect
 
         def side_effect(url: str):
             mock = Mock()
